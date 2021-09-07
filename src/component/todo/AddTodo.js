@@ -16,7 +16,8 @@ const useStyles = makeStyles({
     borderRadius: "10px",
     boxShadow: "0px 0px 12px -3px #00695c",
   },
-  inputSpace: { marginTop: "10px" },
+  inputSpace: { marginTop: "20px" },
+  titleStyle: { color: "#009688", textAlign: "center" },
 });
 
 const AddTodo = () => {
@@ -24,7 +25,9 @@ const AddTodo = () => {
   return (
     <div>
       <form noValidate autoComplete="off" className={classes.formStyles}>
-        <Typography variant="subtitle2">Enter Task Here</Typography>
+        <Typography variant="subtitle1" className={classes.titleStyle}>
+          Enter Task Here
+        </Typography>
         <TextField
           className={classes.inputSpace}
           id="add-todo"
