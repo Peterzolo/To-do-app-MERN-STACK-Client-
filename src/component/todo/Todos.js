@@ -1,11 +1,14 @@
-import React from 'react'
+import React from "react";
+import AddTodo from "./AddTodo";
+import TodoList from "./TodoList";
 
 const Todos = () => {
-    return (
-        <div>
-            <h3>Todos</h3>
-        </div>
-    )
-}
+  return (
+    <div>
+      <AddTodo />
+      <TodoList />
+    </div>
+  );
+};
 
-export default Todos
+export default Todos;
