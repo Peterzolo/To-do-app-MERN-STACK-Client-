@@ -1,7 +1,8 @@
 import React from "react";
-import { TextField, Button, Typography } from "@material-ui/core";
+import { TextField, Typography } from "@material-ui/core";
 import { SendRounded } from "@material-ui/icons";
 import { makeStyles } from "@material-ui/core";
+import { useState } from "react";
 
 const useStyles = makeStyles({
   submitBtnStyle: {
@@ -22,9 +23,31 @@ const useStyles = makeStyles({
 
 const AddTodo = () => {
   const classes = useStyles();
+
+  const [todo, setTodo] = useState({
+    name: "",
+    description: "",
+    isComplete: false,
+  });
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(todo);
+    setTodo({
+      name: "",
+      description: "",
+      isComplete: false,
+    });
+  };
+
   return (
     <div>
-      <form noValidate autoComplete="off" className={classes.formStyles}>
+      <form
+        noValidate
+        autoComplete="off"
+        className={classes.formStyles}
+        onSubmit={handleSubmit}
+      >
         <Typography variant="subtitle1" className={classes.titleStyle}>
           Enter Task Here
         </Typography>
@@ -35,6 +58,10 @@ const AddTodo = () => {
           autoFocus
           fullWidth
           variant="filled"
+          value={todo.name}
+          onChange={(e) =>
+            setTodo({ ...todo, name: e.target.value, date: new Date() })
+          }
         />
         <TextField
           className={classes.inputSpace}
@@ -42,9 +69,11 @@ const AddTodo = () => {
           label="Enter description"
           variant="filled"
           multiline
-          rows={5}
-          rowsMax={10}
+          minRows={5}
+          maxRows={10}
           fullWidth
+          value={todo.description}
+          onChange={(e) => setTodo({ ...todo, description: e.target.value })}
         />
         <button
           className={classes.submitBtnStyle}

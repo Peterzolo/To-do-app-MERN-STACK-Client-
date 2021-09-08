@@ -36,7 +36,7 @@ const SingleTodo = () => {
       </div>
       <div>
         <ButtonGroup size="small" aria-label="outlined primary button group">
-          <Button color="action">
+          <Button color="secondary">
             <CheckCircleRounded />
           </Button>
           <Button color="primary">

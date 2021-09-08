@@ -15,7 +15,7 @@ const TodoList = () => {
   const classes = useStyles();
   return (
     <div className={classes.listStyles}>
-      <Typography variant="5">List of Tasks</Typography>
+      <Typography variant="h5">List of Tasks</Typography>
       <SingleTodo />
       <SingleTodo />
     </div>
